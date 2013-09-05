@@ -1,0 +1,11 @@
+/*
+	Jenney Grover
+	ASD 1308
+	Buddy Trainer
+	August 2013
+*/
+
+#homepage footer a {
+	background: #ccc url(images/bg.jpg) repeat-x bottom left; 
+	color: #fff; 
+}
