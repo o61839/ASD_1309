@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <!-- Jenney Grover
-		ASD 1308
-		Minute 2 Lose
-		August 2013
-		***my personal timer used in conjunction with http://bodyforlife.com***
+		ASD 1309
+		Christmas List
+		Septmeber 2013
+		***your personal list, naughty or nice, and budget***
 -->
 <html lang='en'>	
-	<title>Minute 2 Lose</title>
+	<title>Christmas List</title>
     	<meta charset="utf-8" /> 
         <meta name="robots" content="index,follow" />
         <!-- meta name="robots" content="noindex, nofollow" /> -->
-        <meta name="keywords" content="html5, mobile development, Full Sail University, aerobics, weights, lifting, exercise, timer" />
+        <meta name="keywords" content="html5, mobile development, Full Sail University, Christmas, list, budget, gifts" />
         <meta name="author" content="Jenney Grover" />
-        <meta name="description" content="Lose weight a minute at a time." />
+        <meta name="description" content="Making your list, checking it twice, write down who's naughty and nice!" />
        	
        	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
        	<meta name="HandheldFriendly" content="True">
@@ -26,36 +26,23 @@
 		<!-- The link for the jQuery Mobile web hosted code -->
 		<link rel="stylesheet" href="css/jquery.mobile.css" />
 		<!-- Themeroller -->
-		<link rel="stylesheet" href="css/Zen.min.css" type="text/css"/>
+		<link rel="stylesheet" href="css/ChristmasGreen.min.css" type="text/css" />
 		<!-- This is my css style sheet -->
 		<link href="css/main.css" rel="stylesheet" type="text/css" /> 
 	<body>
 		<section data-role="page" id="homepage" data-title="ViewSource: Home" data-theme="a">
 			<header data-role="header" data-position="fixed" data-id="vs_header">
-				<h1>Minute 2 Lose</h1>
+				<h1>Christmas List</h1>
 			</header>
 			<section data-role="content">
+				<p id="daysTill"></p> <!--	need to get a countdown timer to show up here  -->	
 				<p>Need to set up your workout?</p>
 				<section data-role="control">
-					<a href="#newAerobic" data-role="button" data-icon="arrow-r" data-iconpos="right">Cardio, Aerobics, Abs, Arm, Booty</a> 
-					<a href="#newChallenge" data-role="button" data-icon="arrow-r" data-iconpos="right">Pushups, Planks, Burpees, Squats, Lunges</a> 
+					<a href="#addPerson" data-role="button" data-icon="arrow-r" data-iconpos="right">Make your list (add a person)</a> 
+					<a href="#addGift" data-role="button" data-icon="arrow-r" data-iconpos="right">Checking it twice (add a gift)</a> 
 				</section>
 			</section>
-		<!--	THIS NEEDS TO BE THOUGHT OUT MORE. 
-				HOW TO GET BACK TO THE WORKOUT AFTER IT IS SAVED. 
-					NEEDS TO CHANGE TO CURRENT DATE
-					NEEDS TO SHOW CURRENT DAY ___ OF 30
-					NEEDS TO HAVE OPTION TO SHOW DAY'S ACTIVITY IS COMPLETED
-					ONCE COMPLETED NEEDS TO SHOW GRAPH OF COMPLETIONS: DAYS, EXERCISES, AND REPS
-			<section data-role="content">
-				<p>What are you going to tackle today?</p>
-				<section data-role="control">
-					<a href="#aerobics" data-role="button" data-icon="arrow-r" data-iconpos="right">20 Minute Challenge</a> 
-					<a href="#lifting" data-role="button" data-icon="arrow-r" data-iconpos="right">30 Day Challenge</a> 
-				</section>
-			</section>
-		-->	
-			<div>
+			<div> <!--	this is where the display will go  -->	
 				<ul id="list" data-role="listview">
 				</ul>
 			</div>
