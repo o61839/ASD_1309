@@ -9,3 +9,19 @@
 	background: #ccc url(images/bg.jpg) repeat-x bottom left; 
 	color: #fff; 
 }
+
+#wonky {
+	font-size: 24px;
+}
+
+#daysTo {
+	display: hide; 
+}
+
+#daysTill {
+	display: hide; 
+}
+
+span {
+	font-size: small; 
+}
