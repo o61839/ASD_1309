@@ -6,6 +6,29 @@
 $("#homepage").on("click", function() 
 {
 	//don't think there are any functions needed for this page
+	
+	//Date Comparison
+    var dates = function (dayOne, dayTwo, hoursOrDays) {
+        var millesecondsInDay = 86400000;
+        var millesecondsInHour = 3600000;
+        
+        if (dayTwo.getTime() === dayOne.getTime()){
+            return false;
+        } else {
+            var timeDifference = (dayTwo.getTime() - dayOne.getTime())
+        };
+        
+            if (timeDifference < millesecondsInDay) {
+                var hoursLeft = timeDifference / millesecondsInHour
+                var returnHourOrDays = hoursLeft + " " + hoursOrDays[0] + " difference";
+            } else {
+                var daysLeft = timeDifference / millesecondsInDay
+                var returnHourOrDays = daysLeft + " " + hoursOrDays[1] + " difference";
+            };
+            
+    return returnHourOrDays
+    };
+
 });//end #homepage 
 
 $('#info').on('pageinit', function()
@@ -18,7 +41,7 @@ $('#find').on('pageinit', function()
 	//this is still under construction
 });	//end #find 
 
-$('#newChallenge').on('pageinit', function()
+$('#addPerson').on('pageinit', function()
 {
   var showWorkOut = function()
 	{
@@ -210,7 +233,7 @@ $('#newAerobic').on('pageinit', function()
 	
 });	//end #newAerobic
 
-$('#lifting').on('pageinit', function()
+$('#addGift').on('pageinit', function()
 {
 	//code needed for home page goes here
 	
