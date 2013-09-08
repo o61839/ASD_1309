@@ -1,7 +1,7 @@
 //Jenney Grover
-//ASD 1308
-//Buddy Trainer
-//August 2013
+//ASD 1309
+//Christmas List
+//September 2013
 
 $("#homepage").on("click", function() 
 {
