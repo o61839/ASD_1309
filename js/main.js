@@ -3,31 +3,49 @@
 //Christmas List
 //September 2013
 
-$("#homepage").on("click", function() 
+$("#homepage").on('pageinit', function() 
 {
-	//don't think there are any functions needed for this page
-	
 	//Date Comparison
-    var dates = function (dayOne, dayTwo, hoursOrDays) {
-        var millesecondsInDay = 86400000;
-        var millesecondsInHour = 3600000;
-        
-        if (dayTwo.getTime() === dayOne.getTime()){
-            return false;
-        } else {
-            var timeDifference = (dayTwo.getTime() - dayOne.getTime())
-        };
-        
-            if (timeDifference < millesecondsInDay) {
-                var hoursLeft = timeDifference / millesecondsInHour
-                var returnHourOrDays = hoursLeft + " " + hoursOrDays[0] + " difference";
-            } else {
-                var daysLeft = timeDifference / millesecondsInDay
-                var returnHourOrDays = daysLeft + " " + hoursOrDays[1] + " difference";
-            };
-            
-    return returnHourOrDays
-    };
+	alert("Whoa stop dude!");
+	dayOne = new Date(); 
+	dayTwo = new Date(); 
+	dayTwo.setMonth(12); 
+	dayTwo.setDate(31); 
+	//the year should be the current year ??? I hope???
+	var millesecondsInDay = 86400000;
+	var millesecondsInHour = 3600000;
+	
+	if (dayTwo.getTime() === dayOne.getTime())
+	{
+		var itsToday = 0
+		itsToday.html("#daysTill"); 
+		var greetings = "Merry Christmas, Feliz Navidad, Mele Kalikimaka";
+		greetings.html("#today"); 
+		return false; 
+	} 
+	else 
+	{
+		var timeDifference = (dayTwo.getTime() - dayOne.getTime())
+	};
+	
+	if (timeDifference < millesecondsInDay) 
+	{
+		var hoursLeft = timeDifference / millesecondsInHour
+		var returnHourOrDays = hoursLeft + " hours ";
+		returnHourOrDays.appendTo("#daysTill"); 
+
+	} 
+	else 
+	{
+		var daysLeft = timeDifference / millesecondsInDay
+		var returnHourOrDays = daysLeft + " days ";
+		returnHourOrDays.appendTo("#daysTill"); 
+
+	};
+		
+	return returnHourOrDays; 
+	returnHourOrDays.appendTo("#daysTill"); 
+
 
 });//end #homepage 
 
