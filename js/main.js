@@ -82,13 +82,13 @@ $('#addPerson').on('pageinit', function()
 			
 	//} //end showList()
 	
-	var saveList = $('#save').click(function(key) 
+	var saveList = $('#save').on('click', function(key) 
 	{
-		console.log("Hello World!"); 
+		//console.log("Hello World!"); 
 		//If there is no key, this means this is a brand new item and we need a new key
 		//$('#save').click(function(key) 
 		//if(!key){
-			keyValue 			= Math.floor(Math.random()*100001);
+			var keyValue 			= Math.floor(Math.random()*100001);
 		//	console.log("there is no key");
 		//} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
@@ -97,18 +97,44 @@ $('#addPerson').on('pageinit', function()
 		//	keyValue			= key;
 		//	console.log("KEY");
 		//}
-		console.log(keyValue); 
+		//console.log(keyValue);
+		var boughtID = function()
+		{
+			if ($("#budget").val() == "on")
+			{
+				var boughtValue = "Bought";
+			}
+			else
+			{
+				var boughtValue = "WishList"; 
+			}
+			return boughtValue; 
+		}; 
+		
+		var typeID = function ()
+		{
+			if ($("#type").val() == "on")
+			{
+				var typeValue = "Naughty";
+			}
+			else
+			{
+				var typeValue = "Nice";
+			}
+			return typeValue
+		}
+		
 		var myData			= { 
 		//used the returns from the functions and set those as the variables for these arrays.
-			name	 	: ["Name: ", $("name").val],
-			giftIdeas 	: ["Gift Ideas: ", $("giftIdeas").val],
-			budget	 	: ["Budget: ", $("budget").val],
-			bought	 	: ["Bought: ", $("bought").val],
-			type		: ["On List: ", $("type").val],
+			name	 	: ["Name: ", $("#name").val()],
+			giftIdeas 	: ["Gift Ideas: ", $("#giftIdeas").val()],
+			budget	 	: ["Budget: ", $("#budget").val()],
+			bought	 	: ["Bought: ", boughtID()],
+			type		: ["On List: ", typeID()],
 		};
 		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
 		localStorage.setItem(keyValue, JSON.stringify(myData)); 
-		console.log(localStorage); 
+		//console.log(localStorage); 
 		alert("Your list is saved");
 		window.location.reload("#homepage");
 
