@@ -5,47 +5,62 @@
 
 $("#homepage").on('pageinit', function() 
 {
-	//Date Comparison
-	alert("Whoa stop dude!");
-	dayOne = new Date(); 
-	dayTwo = new Date(); 
-	dayTwo.setMonth(12); 
-	dayTwo.setDate(31); 
-	//the year should be the current year ??? I hope???
-	var millesecondsInDay = 86400000;
-	var millesecondsInHour = 3600000;
+	//console.log("Whoa stop dude!");
+	$("#daysTo").click(function() 
+	{
+		//var itsChristmas = function()
+		//{	
+			//Date Comparison
+			dayOne = new Date(); 
+			//dayOne.setMonth(11); 
+			//dayOne.setDate(25);
+			dayTwo = new Date(); 
+			dayTwo.setMonth(11); 
+			dayTwo.setDate(25); 
+			//the year should be the current year ??? I hope???
+			var millesecondsInDay = 86400000;
+			var millesecondsInHour = 3600000;
 	
-	if (dayTwo.getTime() === dayOne.getTime())
-	{
-		var itsToday = 0
-		itsToday.html("#daysTill"); 
-		var greetings = "Merry Christmas, Feliz Navidad, Mele Kalikimaka";
-		greetings.html("#today"); 
-		return false; 
-	} 
-	else 
-	{
-		var timeDifference = (dayTwo.getTime() - dayOne.getTime())
-	};
+			if (dayTwo.getTime() === dayOne.getTime())
+			{
+				var itsToday = 0;
+				$("#daysTill").append(itsToday); 
+				var greetings = "Merry Christmas, Feliz Navidad, Mele Kalikimaka";
+				$("#today").append(greetings); 
+				return false; 
+			} 
+			else 
+			{
+				var timeDifference = (dayTwo.getTime() - dayOne.getTime())
+			};
 	
-	if (timeDifference < millesecondsInDay) 
-	{
-		var hoursLeft = timeDifference / millesecondsInHour
-		var returnHourOrDays = hoursLeft + " hours ";
-		returnHourOrDays.appendTo("#daysTill"); 
-
-	} 
-	else 
-	{
-		var daysLeft = timeDifference / millesecondsInDay
-		var returnHourOrDays = daysLeft + " days ";
-		returnHourOrDays.appendTo("#daysTill"); 
-
-	};
+			if (timeDifference < millesecondsInDay) 
+			{
+				var hoursLeft = timeDifference / millesecondsInHour
+				var returnHourOrDays = Math.ceil(hoursLeft) + " hours ";
+				$("#daysTill").append(returnHourOrDays);
+				//var returnHourOrDays = hoursLeft + " hours "; 
+				//var n = parseInt(returnHourOrDays);
+				//var m = n.toFixed(1);
+				//$("#daysTill").append(m);
+				
+			} 
+			else 
+			{
+				var daysLeft = timeDifference / millesecondsInDay
+				var returnHourOrDays = Math.ceil(daysLeft) + " days ";
+				$("#daysTill").append(returnHourOrDays);
+				//var returnHourOrDays = daysLeft + " days ";
+				//var n = parseInt(returnHourOrDays);
+				//var m = Math.ceil(n);
+				//$("#daysTill").append(m);
+			};
+			return returnHourOrDays; 
+		//}	
+	
+		itsChristmas(); 
 		
-	return returnHourOrDays; 
-	returnHourOrDays.appendTo("#daysTill"); 
-
+	});	
 
 });//end #homepage 
 
@@ -61,107 +76,70 @@ $('#find').on('pageinit', function()
 
 $('#addPerson').on('pageinit', function()
 {
-  var showWorkOut = function()
-	{
-			//shows Challenge #1
-			//this creates the li
-			var newLi1 = $('<li></li>'); 
-			$("list").append(newLi1);  
-			//this creates the heading and puts it into the li
-			var heading1 = $('<h3>Challenge #1</h3>'); 
-			newLi1.append(heading1); 
-			//this puts the value into a <p>
-			var work1 = $('liftingWorkout1').val();
-			if (work1 != "placeHolder")
-			{
-				var pWork1 = $('<p></p>');
-				pWork1.text(work1); 
-				newLi1.append(pWork1); 
-			}
-			else
-			{
-				alert("You need to choose a workout!")
-			}//ends Challenge #1
-			
-			//shows Challenge #2
-			var work2 = $('liftingWorkout2').val();
-			if (work2 != "nomore" || "placeHolder")
-			{
-				//this creates the li and puts in the heading
-				var newLi2 = $('<li></li>'); 
-				$("list").append(newLi2);  
-				var heading2 = $('<h3>Challenge #2</h3>');
-				newLi2.append(heading2); 
-				//this puts the value into a <p>
-				var pWork2 = $('<p></p>');
-				pWork2text.(work2); 
-				newLi2.append(pWork2); 
-			}//ends Challenge #2
-			
-			//shows Challenge #3
-			var work3 = $('liftingWorkout3').val();
-			if (work3 != "nomore" || "placeHolder")
-			{
-				//this creates the li and puts in the heading
-				var newLi3 = $('<li></li>'); 
-				$("list").append(newLi3);  
-				var heading3 = $('<h3>Challenge #3</h3>');
-				newLi3.append(heading2); 
-				//this puts the value into a <p>
-				var pWork3 = $('<p></p>');
-				pWork3text.(work3); 
-				newLi3.append(pWork3); 	
-			}//ends Challenge #3
-			
-			//shows Level
-				//id = reps 
-				//value = 1, 2, 3
-			
-			//shows WarmUp and CoolDown
-				//id = warmCool
-				//value = on (yes) OR off (no) 
-			
-			//shows Challenge Start Date
-				//id = dateAdded
-				//value should be the date 
+  	//var showList = function()
+	//{
 			
 			
-	} //end showWorkOut()
+	//} //end showList()
 	
-	var saveWorkOut()
+	var saveList = $('#save').click(function(key) 
 	{
-		
-	}// end saveWorkOut () 
+		console.log("Hello World!"); 
+		//If there is no key, this means this is a brand new item and we need a new key
+		//$('#save').click(function(key) 
+		//if(!key){
+			keyValue 			= Math.floor(Math.random()*100001);
+		//	console.log("there is no key");
+		//} else {
+			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
+			//the key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here, into the submitInfo function
+		//	keyValue			= key;
+		//	console.log("KEY");
+		//}
+		console.log(keyValue); 
+		var myData			= { 
+		//used the returns from the functions and set those as the variables for these arrays.
+			name	 	: ["Name: ", $("name").val],
+			giftIdeas 	: ["Gift Ideas: ", $("giftIdeas").val],
+			budget	 	: ["Budget: ", $("budget").val],
+			bought	 	: ["Bought: ", $("bought").val],
+			type		: ["On List: ", $("type").val],
+		};
+		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
+		localStorage.setItem(keyValue, JSON.stringify(myData)); 
+		console.log(localStorage); 
+		alert("Your list is saved");
+		window.location.reload("#homepage");
+
+	}); // end saveList 
 	
-	var goWorkOut()
+	var clearList = $("#delete").click(function()
 	{
-		//this function is from button click. It will take user to the showWorkout
-		//need to get to the "day" workout
-		//function to mark "day" workout completed 
-		
-		
-		
-	}// end goWorkOut()
-	
-	$("#clearData").on("click", function(){
-        if(localStorage.length === 0){
-            alert("You have no workouts saved.");
+        if(localStorage.length === 0)
+        {
+            alert("You have no lists saved.");
             window.location.reload("#homepage");
-        } else {
-            var confirmClear = confirm("Are you sure you want to delete all saved workout(s)?")
-            if (confirmClear) {
+        } 
+        else 
+        {
+            var confirmClear = confirm("Are you sure you want to delete all saved list(s)?");
+            if (confirmClear) 
+            {
                 localStorage.clear();
-                alert("You have successfully cleared all saved workout(s)!");
+                alert("You have successfully cleared all saved list(s)!");
                 $.mobile.changePage('#homepage');
                 window.location.reload();
-            } else {
-                alert("Your saved workout(s) ave not been deleted!");
+            } 
+            else 
+            {
+                alert("Your saved list(s) have not been deleted!");
                 window.location.reload();
-            }
-        }
-    });
+            };
+        };
+    }); // end clearList
     
-     editWorkout = function(workoutKey){    
+    /* editWorkout = function(workoutKey){    
         
         $.mobile.changePage('#newWorkout');
         
@@ -188,74 +166,22 @@ $('#addPerson').on('pageinit', function()
         $("#submitCharacter").button('refresh');
 
     };
-	
-	//button call for showWorkOut()
-	//button call for saveWorkOut ()
-	//button call for goWorkOut()
-
-	
-});	//end #newChallenge 
-
-$('#newAerobic').on('pageinit', function()
-{
-	var showAerobics = function()
-	{
-		//shows Challenge Start Date
-			//id = dateAdded
-			//value should be the date 	
-			
-		//shows Aerobics
-		//this creates the li and puts in the heading
-		var newLi4 = $('<li></li>'); 
-		$("list").append(newLi4);  
-		var heading4 = $('<h3>Aerobics</h3>');
-		newLi4.append(heading4); 
-		//this puts the value into a <p>
-		var pWork4 = $('<p></p>');
-		pWork4text.(work4); 
-		newLi4.append(pWork4); 
-		//ends Aerobics
-		
-		//shows aerobic time 
-			//id = speedTime 
-			//value = 1, 2, 3, 4, 5 
-			
-		//shows rest time 
-			//id = restTime 
-			//value = 1, 2, 3, 4, 5 
-			
-		//shows how many sets of aerobic/rest time
-			//id = sets
-			//value = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
-		
-		//shows WarmUp and CoolDown
-			//id = warmCool
-			//value = on (yes) OR off (no) 
-					
-	} //end showAerobics()
-	
-	var saveAerobics()
-	{
-		
-	}// end saveAerobics () 
-	
-	var goAerobics()
-	{
-		//this function is from button click. It will take user to the saveAerobics
-		//need to get to the "day" workout -- show what was saved above
-		//function to mark "day" workout completed 
-		
-		
-		
-	}// end goAerobics()
-	
-});	//end #newAerobic
+	*/
+}); //end #addPerson
+ 
 
 $('#addGift').on('pageinit', function()
 {
 	//code needed for home page goes here
 	
-});	//end #lifting 
+});	//end #addGift
+
+$('#viewList').on('pageinit', function()
+{
+	//code needed for home page goes here
+	
+});	//end #viewList
+ 
 
 
 
