@@ -36,8 +36,9 @@
 			</header>
 			<section data-role="content">
 				<section id="daysTo" style="display:inline">
-					<h1 id="daysTill" style="display:inline">***</h1> <!--	need to get a countdown timer to show up here  -->	
-					<h1 style="display:inline">days til Christmas</h1>
+					<h1 id="daysTill" style="display:inline">    </h1> <!--	need to get a countdown timer to show up here  -->	
+					<h1 style="display:inline"> til Christmas</h1>
+					<h2 id="today"></h2>
 				</section>
 				<section data-role="control">
 					<p>Add a person (or two) to your list!</p>
@@ -100,13 +101,13 @@
                 </span>
                 
                 <section data-role="fieldcontain">
-                    <label for="firstName">* Name:</label>
-                    <input type="text" name="firstName" id="firstName" autocomplete="off" class="required" placeholder="Please enter a name..." />
+                    <label for="name">* Name:</label>
+                    <input type="text" name="name" id="name" autocomplete="off" class="required" placeholder="Please enter a name..." />
                 </section>
                 
                 <section data-role="fieldcontain">
-                    <label for="giftIdea">* Gift Ideas:</label>
-                    <input type="text" name="giftIdea" id="giftIdea" autocomplete="off" class="required" placeholder="gift ideas..." />
+                    <label for="giftIdeas">* Gift Ideas:</label>
+                    <input type="text" name="giftIdeas" id="giftIdeas" autocomplete="off" class="required" placeholder="gift ideas..." />
                 </section>
                 
                  <section data-role="fieldcontain">
@@ -123,8 +124,8 @@
 				</section>
 				
 				<section data-role="fieldcontain" id="wonky">
-						<label for="typeList">Gonna find out who's...</label>
-						<select data-role="slider" id="typeList">
+						<label for="type">Gonna find out who's...</label>
+						<select data-role="slider" id="type">
 							<option value="on" id="naughty">Naughty</option>
 							<option value="off">Nice</option>
 						</select>
@@ -138,9 +139,9 @@
 				--->
 				<section>
 					<div data-role="fieldcontain">
-						<a href="#" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
-						<a href="#" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
+						<a href="#" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
 			</form>	
@@ -169,13 +170,13 @@
                 </span>
                 
                 <section data-role="fieldcontain">
-                    <label for="firstName">* Name:</label>
-                    <input type="text" name="firstName" id="firstName" autocomplete="off" class="required" placeholder="Please enter a name..." />
+                    <label for="name">* Name:</label>
+                    <input type="text" name="name" id="name" autocomplete="off" class="required" placeholder="Please enter a name..." />
                 </section>
                 
                 <section data-role="fieldcontain">
-                    <label for="giftIdea">* Gift Ideas:</label>
-                    <input type="text" name="giftIdea" id="giftIdea" autocomplete="off" class="required" placeholder="gift ideas..." />
+                    <label for="giftIdeas">* Gift Ideas:</label>
+                    <input type="text" name="giftIdeas" id="giftIdeas" autocomplete="off" class="required" placeholder="gift ideas..." />
                 </section>
                 
                  <section data-role="fieldcontain">
@@ -192,8 +193,8 @@
 				</section>
 				
 				<section data-role="fieldcontain" id="wonky">
-						<label for="typeList">Gonna find out who's...</label>
-						<select data-role="slider" id="typeList">
+						<label for="type">Gonna find out who's...</label>
+						<select data-role="slider" id="type">
 							<option value="on" id="naughty">Naughty</option>
 							<option value="off">Nice</option>
 						</select>
@@ -207,9 +208,9 @@
 				--->
 				<section>
 					<div data-role="fieldcontain">
-						<a href="#" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
-						<a href="#" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
+						<a href="#" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
 			</form>	
@@ -224,10 +225,6 @@
         	</footer>
 		</section> <!-- /#addGift -->
 		
-		<!-- /#lifting
-			This page is still "active" but is not shown on the app. This will be a future deployment. 
-			For this class I am focusing on the 30-Day challenges and the Aerobics.
-		-->
 		<section data-role="page" id="viewList" data-title="ViewSource: View the List" data-theme="a">
 			<header data-role="header" data-position="fixed" data-id="vs_header">
 				<h1>View your List</h1>
