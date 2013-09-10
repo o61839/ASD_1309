@@ -60,7 +60,7 @@ $("#homepage").on('pageinit', function()
 	
 		itsChristmas(); 
 		
-	});	
+	});
 
 });//end #homepage 
 
@@ -88,13 +88,13 @@ $('#addPerson').on('pageinit', function()
 		//If there is no key, this means this is a brand new item and we need a new key
 		//$('#save').click(function(key) 
 		//if(!key){
-			var keyValue 			= Math.floor(Math.random()*100001);
+			var keyValue = Math.floor(Math.random()*100001);
 		//	console.log("there is no key");
 		//} else {
 			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
 			//the key is the same key that's been passed along from the editSubmit event handler
 			//to the validate function, and then passed here, into the submitInfo function
-		//	keyValue			= key;
+		//	keyValue = key;
 		//	console.log("KEY");
 		//}
 		//console.log(keyValue);
@@ -126,6 +126,7 @@ $('#addPerson').on('pageinit', function()
 		
 		var myData			= { 
 		//used the returns from the functions and set those as the variables for these arrays.
+			key			: [keyValue],
 			name	 	: ["Name: ", $("#name").val()],
 			giftIdeas 	: ["Gift Ideas: ", $("#giftIdeas").val()],
 			budget	 	: ["Budget: ", $("#budget").val()],
@@ -165,46 +166,146 @@ $('#addPerson').on('pageinit', function()
         };
     }); // end clearList
     
-    /* editWorkout = function(workoutKey){    
-        
-        $.mobile.changePage('#newWorkout');
-        
-        //var workoutKey = this.id;
-        var workoutInfo = localStorage.getItem(workoutKey);
-        var workoutLibrary = JSON.parse(workoutInfo);
-    
-        $("#characterName").val(workoutLibrary.characterName[0]);
-        $("#serverName").val(workoutLibrary.serverName[0]);
-        $("#race").val(workoutLibrary.race[0]).selectmenu();
-        $("#race").selectmenu('refresh');
-        $("#class").val(workoutLibrary.toonClass[0]).selectmenu();
-        $("#class").selectmenu('refresh');
-        $("#role").val(workoutLibrary.role[0]).selectmenu();
-        $("#role").selectmenu('refresh');
-        $("#specialization").val(workoutLibrary.specialization[0]);
-        $("#level").val(workoutLibrary.level[0]).slider('refresh');
-        $("#itemLevel").val(workoutLibrary.itemLevel[0]);
-        $("#professions").val(workoutLibrary.professions[0]);
-        $("#extraInfo").val(workoutLibrary.extraInfo[0]);
-        $("#keyStorage").val(workoutKey);
-        
-        $("#submitCharacter").val("Edit My Toon!");
-        $("#submitCharacter").button('refresh');
-
-    };
-	*/
+   
 }); //end #addPerson
  
 
 $('#addGift').on('pageinit', function()
 {
-	//code needed for home page goes here
+	
+
 	
 });	//end #addGift
 
-$('#viewList').on('pageinit', function()
+$('#viewList').on('pageinit', function(myData)
 {
-	//code needed for home page goes here
+	/*$(".loadJSON").on("click", function(){
+		console.log("Hola. Me encanta cantar y bailar");
+        
+		 $.ajax({
+		    url: "xhr/data.json",
+		    type: "GET",
+		    dataType: "json",
+		    success: function(niceList) {
+			$.each(niceList.person, function(index, singleList){
+			    var key = Math.floor(Math.random()*100001);
+			    var storeList = JSON.stringify(singleList);
+			    localStorage.setItem(key, storeList)
+			    console.log("Saved item " + singleList + " to Local Storage with a ID of: " + key)
+			})
+			alert ("Your nice list (json) has been saved!");
+			window.location.reload();
+		    },
+		    console.log("wonky wonky wonky");
+		    //error: function(error, errorparse){
+			//console.log(error, errorparse)
+		    }
+		});
+        
+	});*/
+    
+    /*  $(".loadXML").on("click", function(){
+        console.log("Hola. Yo tengo cinco perros.");
+      $.ajax({
+            url: "xhr/data.xml",
+            type: "GET",
+            dataType: "xml",
+            success: function(naughtyListXML) {
+                $('naughtyList', naughtyListXML).each(function(){
+                    var key = Math.floor(Math.random()*1000000000);
+                    var storeList = {
+                        name  			:[$("#name", this).text()],
+                        giftIdeas     	:[$("#giftIdeas", this).text()],
+                        budget          :[$("#budget", this).text()],
+                        bought      	:[$("#bought", this).text()],
+                        type          	:[$("#type", this).text()],
+                    }
+                    localStorage.setItem(key, JSON.stringify(storeList))
+                    console.log(storeList)
+                });
+                alert ("Your naughty list (xml) has been saved!");
+                window.location.reload();
+            },
+            error: function(error, errorparse){
+                console.log(error, errorparse)
+            }
+        });
+        
+    }); */
+   
+	
+	//how to display the json and xml data that is auto saved....????
+	
+	//var naughtyXML = $('#naughtyList').on('click', function(key) 
+	//{
+	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>")
+		for (var i = 0, f = localStorage.length; i < f; i++) 
+		{
+		var naughtyID 		= localStorage.key(i);
+        	var naughtyValue 	= localStorage.getItem(naughtyID);
+        	var naughtyInfo	 	= JSON.parse(naughtyValue);
+        	
+        	var naughtyNames = $("<li></li>");
+        	var naughtyNamesInfo = 
+        	$(
+        		"<h4>" + naughtyInfo.name[1] + "</h4>" +
+        		"<p>" + naughtyInfo.giftIdeas[1] + "</p>" + 
+        		"<p>" + naughtyInfo.budget[1] + "</p>" + 
+        		"<p>" + naughtyInfo.bought[1] + "</p>" + 
+        		"<p>" + naughtyInfo.type[1] + "</p>" +
+        		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
+        	)
+		
+        	var editLink = $("<a href='#' class='editNaughty' id=" + naughtyID + ">Edit This Person</a>");
+       		editLink.html(naughtyNamesInfo);
+        	naughtyNames.append(editLink).appendTo("#naughtyDisplay");
+        
+			editLink.on('click', function() {
+				var naughtyKey = this.id
+				//editPerson(naughtyKey)
+				console.log("My ID is: " + naughtyKey)
+			});
+		};
+		
+		$("#naughtyDisplay").listview('refresh')
+	
+	var niceJSON = $('#niceList').on('click', function(key) 
+	{
+		$("viewList").append("<ul class='NiceList'></ul>")
+		for (var i = 0, f = localStorage.length; i < f; i++) 
+		{
+			var niceID 		= localStorage.key(i);
+        	var niceValue 	= localStorage.getItem(niceID);
+        	var niceInfo	= JSON.parse(niceValue);
+        	
+        	if (niceInfo.type.val() == "off")
+        	{
+        		//display data
+        	}
+        	//else do nothing but continue the loop
+		}
+	
+	});
+	
+	var editList = function(listKey){    
+        
+        $.mobile.changePage('#addGift'); //why changePage? 
+        
+        //var listKey = this.id;
+        var listInfo = localStorage.getItem(listKey);
+        var listLibrary = JSON.parse(listInfo);
+    
+        $("#name").val(listLibrary.name[0]);
+        $("#giftIdeas").val(listLibrary.giftIdeas[0]);
+        $("#budget").val(listLibrary.budget[0]);
+        $("#bought").val(listLibrary.bought[0]);
+        $("#type").val(type.role[0]);
+        $("#keyStorage").val(listKey);
+        
+        $("#edit").val("Edit My List!");
+        $("#edit").button('refresh');
+
+	};
 	
 });	//end #viewList
  

@@ -1,7 +1,7 @@
 {
-    "niceList": [
+    "person": [
 		{
-			"person"	:	["Megan"],
+			"name"		:	["Megan"],
 			"gender"	:	["girl"],
 			"age"		: 	["29+"],
 			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
@@ -10,7 +10,7 @@
 			"type" 		: 	["Nice"]
 		},
 		{
-			"person"	:	["Holland"],
+			"name"		:	["Holland"],
 			"gender"	:	["girl"],
 			"age"		: 	["7"],
 			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
@@ -19,7 +19,7 @@
 			"type" 		: 	["Nice"]
 		},
 		{
-			"person"	:	["Harper"],
+			"name"		:	["Harper"],
 			"gender"	:	["girl"],
 			"age"		: 	["4"],
 			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
@@ -28,7 +28,7 @@
 			"type" 		: 	["Nice"]
 		},
 		{
-			"person"	:	["Laken"],
+			"name"		:	["Laken"],
 			"gender"	:	["boy"],
 			"age"		: 	["1"],
 			"giftIdeas" : 	["dirt digger, Tonka Truck"],
@@ -37,7 +37,7 @@
 			"type" 		: 	["Nice"]
 		},
 		{
-			"person"	:	["Finley"],
+			"name"		:	["Finley"],
 			"gender"	:	["girl"],
 			"age"		: 	["1"],
 			"giftIdeas" : 	["baby doll stroller"],
