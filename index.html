@@ -36,8 +36,10 @@
 			</header>
 			<section data-role="content">
 				<section id="daysTo" style="display:inline">
+					
 					<h1 id="daysTill" style="display:inline">    </h1> <!--	need to get a countdown timer to show up here  -->	
-					<h1 style="display:inline"> til Christmas</h1>
+					<a href="$" style="display:inline"> til Christmas</a>
+					<!-- <h1 style="display:inline"> til Christmas</h1> -->
 					<h2 id="today"></h2>
 				</section>
 				<section data-role="control">
@@ -140,7 +142,7 @@
 				<section>
 					<div data-role="fieldcontain">
 						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#viewList" id="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
 						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
@@ -209,7 +211,7 @@
 				<section>
 					<div data-role="fieldcontain">
 						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#viewList" id="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
 						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
@@ -230,11 +232,31 @@
 				<h1>View your List</h1>
 			</header>
 			<section data-role="content">
-				<section id="naughtyList">
+				<section>
 					<h1>Who's been naughty?</h1>
+					<section>
+						<button class="loadXML">Load your naughty list (xml)!</button>
+	    			</section>
+	    	
 				</section>
 				<section id="niceList">
 					<h1>Who's been nice?</h1>
+					<section>
+						<button class="loadJSON">Load your nice list (json)!</button>
+					</section>
+				</section>
+				
+				<section id="naughtyList">
+	    				 <ul data-role="listview" id="naughtyDisplay" data-filter="true" data-filter-placeholder="Search for a bad boy or girl...">
+
+	    				</ul>
+	    			</section>
+				
+				<section>
+					<div data-role="fieldcontain">
+						<a href="#addGift" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+					</div>
 				</section>
 				
 			</section>
