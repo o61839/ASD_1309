@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <naughtyList>
 	<person>
 		<name>Julee</name>
-		<gender>girl</gender>
-		<age>29+</age>
 		<giftIdeas>tickets to Nickelback</giftIdeas>
 		<budget>$50.00</budget>
 		<bought>No</bought>
@@ -10,8 +10,6 @@
 	</person>
 	<person>
 		<name>Ronny</name>
-		<gender>boy</gender>
-		<age>60</age>
 		<giftIdeas>eagle figurine</giftIdeas>
 		<budget>$50.00</budget>
 		<bought>Yes</bought>
@@ -19,8 +17,6 @@
 	</person>
 	<person>
 		<name>Ryan</name>
-		<gender>boy</gender>
-		<age>31</age>
 		<giftIdeas>remote control car gadgets</giftIdeas>
 		<budget>$50.00</budget>
 		<bought>No</bought>
@@ -28,8 +24,6 @@
 	</person>
 	<person>
 		<name>Kayl</name>
-		<gender>girl</gender>
-		<age>13</age>
 		<giftIdeas>jewelry making kit</giftIdeas>
 		<budget>$30.00</budget>
 		<bought>Yes</bought>
@@ -37,8 +31,6 @@
 	</person>
 	<person>
 		<name>Jayden</name>
-		<gender>boy</gender>
-		<age>17</age>
 		<giftIdeas>gift cert to farm something</giftIdeas>
 		<budget>$50.00</budget>
 		<bought>No</bought>
@@ -46,8 +38,6 @@
 	</person>
 	<person>
 		<name>Jack</name>
-		<gender>boy</gender>
-		<age>7</age>
 		<giftIdeas>farm toy</giftIdeas>
 		<budget>$30.00</budget>
 		<bought>Yes</bought>
