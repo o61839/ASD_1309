@@ -3,77 +3,6 @@
 //Christmas List
 //September 2013
 
-$("#homepage").on('pageinit', function() 
-{
-	//console.log("Whoa stop dude!");
-	$("#daysTo").click(function() 
-	{
-		//var itsChristmas = function()
-		//{	
-			//Date Comparison
-			dayOne = new Date(); 
-			//dayOne.setMonth(11); 
-			//dayOne.setDate(25);
-			dayTwo = new Date(); 
-			dayTwo.setMonth(11); 
-			dayTwo.setDate(25); 
-			//the year should be the current year ??? I hope???
-			var millesecondsInDay = 86400000;
-			var millesecondsInHour = 3600000;
-	
-			if (dayTwo.getTime() === dayOne.getTime())
-			{
-				var itsToday = 0;
-				$("#daysTill").append(itsToday); 
-				var greetings = "Merry Christmas, Feliz Navidad, Mele Kalikimaka";
-				$("#today").append(greetings); 
-				return false; 
-			} 
-			else 
-			{
-				var timeDifference = (dayTwo.getTime() - dayOne.getTime())
-			};
-	
-			if (timeDifference < millesecondsInDay) 
-			{
-				var hoursLeft = timeDifference / millesecondsInHour
-				var returnHourOrDays = Math.ceil(hoursLeft) + " hours ";
-				$("#daysTill").append(returnHourOrDays);
-				//var returnHourOrDays = hoursLeft + " hours "; 
-				//var n = parseInt(returnHourOrDays);
-				//var m = n.toFixed(1);
-				//$("#daysTill").append(m);
-				
-			} 
-			else 
-			{
-				var daysLeft = timeDifference / millesecondsInDay
-				var returnHourOrDays = Math.ceil(daysLeft) + " days ";
-				$("#daysTill").append(returnHourOrDays);
-				//var returnHourOrDays = daysLeft + " days ";
-				//var n = parseInt(returnHourOrDays);
-				//var m = Math.ceil(n);
-				//$("#daysTill").append(m);
-			};
-			return returnHourOrDays; 
-		//}	
-	
-		itsChristmas(); 
-		
-	});
-
-});//end #homepage 
-
-$('#info').on('pageinit', function()
-{
-	//don't think there are any functions needed for this page
-});//end #info
-
-$('#find').on('pageinit', function()
-{
-	//this is still under construction
-});	//end #find 
-
 /*$('#addPerson').on('pageinit', function()
 {
   	//var showList = function()
@@ -81,6 +10,8 @@ $('#find').on('pageinit', function()
 			
 			
 	//} //end showList()
+	
+	***This is extended stuff for edit function...maybe???
 	
 	var saveList = $('.save').on('click', function(key) 
 	{
@@ -98,84 +29,16 @@ $('#find').on('pageinit', function()
 		//	console.log("KEY");
 		//}
 		//console.log(keyValue);
-		var boughtID = function()
-		{
-			if ($("#budget").val() == "on")
-			{
-				var boughtValue = "Bought";
-			}
-			else
-			{
-				var boughtValue = "WishList"; 
-			}
-			return boughtValue; 
-		}; 
 		
-		var typeID = function ()
-		{
-			if ($("#type").val() == "on")
-			{
-				var typeValue = "Naughty";
-			}
-			else
-			{
-				var typeValue = "Nice";
-			}
-			return typeValue
-		}
 		
-		var myData			= { 
-		//used the returns from the functions and set those as the variables for these arrays.
-			key			: [keyValue],
-			name	 	: ["Name: ", $("#name").val()],
-			giftIdeas 	: ["Gift Ideas: ", $("#giftIdeas").val()],
-			budget	 	: ["Budget: ", $("#budget").val()],
-			bought	 	: ["Bought: ", boughtID()],
-			type		: ["On List: ", typeID()],
-		};
-		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
-		localStorage.setItem(keyValue, JSON.stringify(myData)); 
-		//console.log(localStorage); 
-		alert("Your list is saved");
-		window.location.reload("#homepage");
+		
 
 	}); // end saveList 
-	
-	var clearList = $(".delete").click(function()
-	{
-        if(localStorage.length === 0)
-        {
-            alert("You have no lists saved.");
-            window.location.reload("#homepage");
-        } 
-        else 
-        {
-            var confirmClear = confirm("Are you sure you want to delete all saved list(s)?");
-            if (confirmClear) 
-            {
-                localStorage.clear();
-                alert("You have successfully cleared all saved list(s)!");
-                $.mobile.changePage('#homepage');
-                window.location.reload();
-            } 
-            else 
-            {
-                alert("Your saved list(s) have not been deleted!");
-                window.location.reload();
-            };
-        };
-    }); // end clearList
-    
    
 }); //end #addPerson
 */ 
 
-$('#addGift').on('pageinit', function()
-{
-	
 
-	
-});	//end #addGift
 
 /*
 $('#viewList').on('pageinit', function(myData)
