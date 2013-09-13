@@ -38,7 +38,7 @@
 				<section id="daysTo" style="display:inline">
 					
 					<h1 id="daysTill" style="display:inline">    </h1> <!--	need to get a countdown timer to show up here  -->	
-					<a href="$" style="display:inline"> til Christmas</a>
+					<a href="#" style="display:inline"> til Christmas</a>
 					<!-- <h1 style="display:inline"> til Christmas</h1> -->
 					<h2 id="today"></h2>
 				</section>
@@ -51,7 +51,7 @@
 					<a href="#viewList" data-role="button" data-icon="arrow-r" data-iconpos="right">Let's see who's been naughty or nice?</a>
 				</section>
 			</section>
-			<div> <!--	this is where the display will go  -->	
+			<div> <!--	this is where the display will go   *** this may be extra as I am not displaying on the homepage *** -->	
 				<ul id="list" data-role="listview">
 				</ul>
 			</div>
@@ -117,7 +117,7 @@
                     <input type="text" name="budget" id="budget" autocomplete="off" class="required" placeholder="budget..." />
                 </section>
                 
-				<section data-role="fieldcontain" id="wonky">
+				<section data-role="fieldcontain" id="wonky1">
 						<label for="bought">Have you purchased gifts?</label>
 						<select data-role="slider" id="bought">
 							<option value="on">Bought</option>
@@ -125,7 +125,7 @@
 						</select>
 				</section>
 				
-				<section data-role="fieldcontain" id="wonky">
+				<section data-role="fieldcontain" id="wonky2">
 						<label for="type">Gonna find out who's...</label>
 						<select data-role="slider" id="type">
 							<option value="on" id="naughty">Naughty</option>
@@ -141,9 +141,9 @@
 				--->
 				<section>
 					<div data-role="fieldcontain">
-						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#viewList" id="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
-						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+						<a href="#" class="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
+						<a href="#viewList" class="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
+						<a href="#" class="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
 			</form>	
@@ -165,7 +165,9 @@
 			<!-- edit function to repopulate this form -->
 			<section data-role="content">
 				<h1>Changing information? Adding a gift? Naughty or Nice?</h1>
+				<p>This page is under construction ... come back soon!</p>
 			</section>
+			<!--- *** This is the same form. Same IDs are causing a headache. Need to figure out how to edit with or without this form??? -->
 			<form action="" method="post" id="addPersonList" data-theme="a">
 				<span id="required">
                     * Denotes A Required Field
@@ -201,18 +203,12 @@
 							<option value="off">Nice</option>
 						</select>
 				</section>
-				
-				<!-- 
-				<div data-role="fieldcontain">
-				<label for="dateAdd">Your challenge start date:</label>
-						<input type="date" id="dateAdded" />
-				</div>
-				--->
+			
 				<section>
 					<div data-role="fieldcontain">
-						<a href="#" id="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
-						<a href="#viewList" id="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
-						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+						<a href="#" class="save" data-role="button" data-icon="plus" data-iconpos="right" data-inline="true" data-theme="a">Save</a>
+						<a href="#viewList" class="view" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">View</a>
+						<a href="#" class="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
 			</form>	
@@ -246,16 +242,18 @@
 					</section>
 				</section>
 				
+				<!-- This section needs to move up eventually to the Who's Been Naughty? section. This will display the naughty
+				list and the niceList will display the nice people. EVENTUALLY -->
 				<section id="naughtyList">
 	    				 <ul data-role="listview" id="naughtyDisplay" data-filter="true" data-filter-placeholder="Search for a bad boy or girl...">
 
 	    				</ul>
-	    			</section>
+	    		</section>
 				
 				<section>
 					<div data-role="fieldcontain">
-						<a href="#addGift" id="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
-						<a href="#" id="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
+						<a href="#" class="edit" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Edit</a>
+						<a href="#" class="delete" data-role="button" data-icon="gear" data-iconpos="right" data-inline="true" data-theme="a">Delete</a>
 					</div>
 				</section>
 				
@@ -284,6 +282,9 @@
 					<li> <small>&copy 2013 Duffer Design. All Rights Reserved.<small>
 					</li>
 				</ul>
+				<p>
+					This app was created for Advanced Scalable Data Infrastructures for Full Sail University
+				</p>
 			</div>
 			<footer data-role="footer" data-position="fixed" data-theme="a" data-id="vs_footer">
         		<section data-role="navbar" data-theme="a">

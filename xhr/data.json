@@ -1,49 +1,39 @@
 {
     "person": [
 		{
-			"name"		:	["Megan"],
-			"gender"	:	["girl"],
-			"age"		: 	["29+"],
-			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
-			"budget" 	: 	["$25.00"],
-			"bought" 	: 	["Yes"],
-			"type" 		: 	["Nice"]
+			"name"		:	["Name", "Megan"],
+			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"budget" 	: 	["Budget", "$25.00"],
+			"bought" 	: 	["Bought", "Yes"],
+			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Holland"],
-			"gender"	:	["girl"],
-			"age"		: 	["7"],
-			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
-			"budget" 	: 	["$25.00"],
-			"bought" 	: 	["Yes"],
-			"type" 		: 	["Nice"]
+			"name"		:	["Name", "Megan"],
+			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"budget" 	: 	["Budget", "$25.00"],
+			"bought" 	: 	["Bought", "Yes"],
+			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Harper"],
-			"gender"	:	["girl"],
-			"age"		: 	["4"],
-			"giftIdeas" : 	["Gift Cert to Color Me Mine"],
-			"budget" 	: 	["$25.00"],
-			"bought" 	: 	["Yes"],
-			"type" 		: 	["Nice"]
+			"name"		:	["Name", "Megan"],
+			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"budget" 	: 	["Budget", "$25.00"],
+			"bought" 	: 	["Bought", "Yes"],
+			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Laken"],
-			"gender"	:	["boy"],
-			"age"		: 	["1"],
-			"giftIdeas" : 	["dirt digger, Tonka Truck"],
-			"budget" 	: 	["$25.00"],
-			"bought" 	: 	["No"],
-			"type" 		: 	["Nice"]
+			"name"		:	["Name", "Megan"],
+			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"budget" 	: 	["Budget", "$25.00"],
+			"bought" 	: 	["Bought", "Yes"],
+			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Finley"],
-			"gender"	:	["girl"],
-			"age"		: 	["1"],
-			"giftIdeas" : 	["baby doll stroller"],
-			"budget" 	: 	["$25.00"],
-			"bought" 	: 	["No"],
-			"type" 		: 	["Nice"]
+			"name"		:	["Name", "Megan"],
+			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"budget" 	: 	["Budget", "$25.00"],
+			"bought" 	: 	["Bought", "Yes"],
+			"type" 		: 	["Type", "Nice"]
 		}
 	]
 }
