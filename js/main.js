@@ -12,6 +12,7 @@ $("#homepage").on('pageinit', function()
 		//{	
 			//Date Comparison
 			dayOne = new Date(); 
+			//the next two lines test the day of Christmas code/message
 			//dayOne.setMonth(11); 
 			//dayOne.setDate(25);
 			dayTwo = new Date(); 
@@ -74,55 +75,44 @@ $('#find').on('pageinit', function()
 	//this is still under construction
 });	//end #find 
 
+$('#addGift').on('pageinit', function()
+{
+	//want this page to be the edit page, but it might not end up that way...
+	
+});	//end #addGift
+
 $('#addPerson').on('pageinit', function()
 {
-  	//var showList = function()
-	//{
-			
-			
-	//} //end showList()
-	
-	var saveList = $('#save').on('click', function(key) 
+	var saveList = $('.save').on('click', function(key)	
 	{
-		//console.log("Hello World!"); 
-		//If there is no key, this means this is a brand new item and we need a new key
-		//$('#save').click(function(key) 
-		//if(!key){
-			var keyValue = Math.floor(Math.random()*100001);
-		//	console.log("there is no key");
-		//} else {
-			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
-			//the key is the same key that's been passed along from the editSubmit event handler
-			//to the validate function, and then passed here, into the submitInfo function
-		//	keyValue = key;
-		//	console.log("KEY");
-		//}
-		//console.log(keyValue);
+		console.log("You gots to save!");
+		var keyValue = Math.floor(Math.random()*100001);
+		
 		var boughtID = function()
 		{
 			if ($("#budget").val() == "on")
 			{
-				var boughtValue = "Bought";
-			}
+				var boughtValue = "Bought"; 
+			}	
 			else
 			{
 				var boughtValue = "WishList"; 
 			}
 			return boughtValue; 
-		}; 
+		};
 		
-		var typeID = function ()
+		var typeID = function()
 		{
 			if ($("#type").val() == "on")
 			{
-				var typeValue = "Naughty";
-			}
+				var typeValue = "Naughty"; 
+			}	
 			else
 			{
-				var typeValue = "Nice";
+				var typeValue = "Nice"; 
 			}
-			return typeValue
-		}
+			return typeValue;
+		};
 		
 		var myData			= { 
 		//used the returns from the functions and set those as the variables for these arrays.
@@ -138,10 +128,10 @@ $('#addPerson').on('pageinit', function()
 		//console.log(localStorage); 
 		alert("Your list is saved");
 		window.location.reload("#homepage");
+		
+	}); //saveList
 
-	}); // end saveList 
-	
-	var clearList = $("#delete").click(function()
+	var clearList = $(".delete").click(function()
 	{
         if(localStorage.length === 0)
         {
@@ -165,83 +155,17 @@ $('#addPerson').on('pageinit', function()
             };
         };
     }); // end clearList
-    
-   
-}); //end #addPerson
- 
+	
+});	//end #addPerson
 
-$('#addGift').on('pageinit', function()
-{
-	
-
-	
-});	//end #addGift
-
-$('#viewList').on('pageinit', function(myData)
-{
-	/*$(".loadJSON").on("click", function(){
-		console.log("Hola. Me encanta cantar y bailar");
-        
-		 $.ajax({
-		    url: "xhr/data.json",
-		    type: "GET",
-		    dataType: "json",
-		    success: function(niceList) {
-			$.each(niceList.person, function(index, singleList){
-			    var key = Math.floor(Math.random()*100001);
-			    var storeList = JSON.stringify(singleList);
-			    localStorage.setItem(key, storeList)
-			    console.log("Saved item " + singleList + " to Local Storage with a ID of: " + key)
-			})
-			alert ("Your nice list (json) has been saved!");
-			window.location.reload();
-		    },
-		    console.log("wonky wonky wonky");
-		    //error: function(error, errorparse){
-			//console.log(error, errorparse)
-		    }
-		});
-        
-	});*/
-    
-    /*  $(".loadXML").on("click", function(){
-        console.log("Hola. Yo tengo cinco perros.");
-      $.ajax({
-            url: "xhr/data.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function(naughtyListXML) {
-                $('naughtyList', naughtyListXML).each(function(){
-                    var key = Math.floor(Math.random()*1000000000);
-                    var storeList = {
-                        name  			:[$("#name", this).text()],
-                        giftIdeas     	:[$("#giftIdeas", this).text()],
-                        budget          :[$("#budget", this).text()],
-                        bought      	:[$("#bought", this).text()],
-                        type          	:[$("#type", this).text()],
-                    }
-                    localStorage.setItem(key, JSON.stringify(storeList))
-                    console.log(storeList)
-                });
-                alert ("Your naughty list (xml) has been saved!");
-                window.location.reload();
-            },
-            error: function(error, errorparse){
-                console.log(error, errorparse)
-            }
-        });
-        
-    }); */
-   
-	
-	//how to display the json and xml data that is auto saved....????
-	
-	//var naughtyXML = $('#naughtyList').on('click', function(key) 
-	//{
+$('#viewList').on('pageinit', function()
+{		
+	//var naughtyXML = $('#naughtyList').on('click', function(key){};
+	//eventually I need to change this to only display the NAUGHTY LIST and have it in the naughty list section
 	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>")
 		for (var i = 0, f = localStorage.length; i < f; i++) 
 		{
-		var naughtyID 		= localStorage.key(i);
+			var naughtyID 		= localStorage.key(i);
         	var naughtyValue 	= localStorage.getItem(naughtyID);
         	var naughtyInfo	 	= JSON.parse(naughtyValue);
         	
@@ -254,61 +178,57 @@ $('#viewList').on('pageinit', function(myData)
         		"<p>" + naughtyInfo.bought[1] + "</p>" + 
         		"<p>" + naughtyInfo.type[1] + "</p>" +
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
-        	)
-		
-        	var editLink = $("<a href='#' class='editNaughty' id=" + naughtyID + ">Edit This Person</a>");
-       		editLink.html(naughtyNamesInfo);
+        	);
+        	$(".NaughtyList").append(naughtyNames)
+        	naughtyNames.append(naughtyNamesInfo)
+        	
+        var editLink = $("<a href='#' class='editPerson' id=" + naughtyID + ">Edit This Person!</a>");
+        	editLink.html(naughtyNamesInfo);
         	naughtyNames.append(editLink).appendTo("#naughtyDisplay");
         
-			editLink.on('click', function() {
-				var naughtyKey = this.id
-				//editPerson(naughtyKey)
-				console.log("My ID is: " + naughtyKey)
-			});
-		};
+        	editLink.on('click', function() {
+            	var listKey = this.id
+            	editList(listKey)
+            //console.log("My ID is: " + listKey)
+       		});
+        };
 		
 		$("#naughtyDisplay").listview('refresh')
-	
-	var niceJSON = $('#niceList').on('click', function(key) 
-	{
-		$("viewList").append("<ul class='NiceList'></ul>")
-		for (var i = 0, f = localStorage.length; i < f; i++) 
+		
+		$(".deletePerson").on("click", function ()
 		{
-			var niceID 		= localStorage.key(i);
-        	var niceValue 	= localStorage.getItem(niceID);
-        	var niceInfo	= JSON.parse(niceValue);
-        	
-        	if (niceInfo.type.val() == "off")
-        	{
-        		//display data
-        	}
-        	//else do nothing but continue the loop
-		}
-	
-	});
-	
-	var editList = function(listKey){    
+			var confirmDelete = confirm("Double check! You are about to delete this person!");
+            if (confirmDelete) {
+                //Pulls the Key for selected item in Local Storage
+                localStorage.removeItem($(this).attr('data-key'));
+                alert("This person was successfully deleted from your list.")
+                window.location.reload("#index");
+            } else {
+                alert("Your person was not deleted.");
+                window.location.reload();
+            }
+            
+    	});
+    	
+    	var editList = function(listKey){    
         
-        $.mobile.changePage('#addGift'); //why changePage? 
+        		$.mobile.changePage('#addGift'); //why changePage? 
         
-        //var listKey = this.id;
-        var listInfo = localStorage.getItem(listKey);
-        var listLibrary = JSON.parse(listInfo);
+        		var listKey = this.id;
+        		var listInfo = localStorage.getItem(listKey);
+        		//var listLibrary = JSON.parse(listInfo);
     
-        $("#name").val(listLibrary.name[0]);
-        $("#giftIdeas").val(listLibrary.giftIdeas[0]);
-        $("#budget").val(listLibrary.budget[0]);
-        $("#bought").val(listLibrary.bought[0]);
-        $("#type").val(type.role[0]);
-        $("#keyStorage").val(listKey);
+        		$("#name").val(naughtyNamesInfo.name[1]);
+        		$("#giftIdeas").val(naughtyNamesInfo.giftIdeas[1]);
+        		$("#budget").val(naughtyNamesInfo.budget[1]);
+        		$("#bought").val(naughtyNamesInfo.bought[1]);
+        		$("#type").val(naughtyNamesInfo.type[1]);
+        		$("#keyStorage").val(listKey);
         
-        $("#edit").val("Edit My List!");
-        $("#edit").button('refresh');
+        		$(".edit").val("Edit My List!");
+        		$(".edit").button('refresh');
 
-	};
-	
-});	//end #viewList
- 
-
-
-
+		};
+    	
+    
+}); //end #viewList
