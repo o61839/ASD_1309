@@ -178,10 +178,19 @@ $('#viewList').on('pageinit', function()
         		"<p>" + naughtyInfo.bought[1] + "</p>" + 
         		"<p>" + naughtyInfo.type[1] + "</p>" +
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
-        		//"<button class='editPerson' data-key=" + naughtyID + ">Edit This Person!</button>"
         	);
         	$(".NaughtyList").append(naughtyNames)
         	naughtyNames.append(naughtyNamesInfo)
+        	
+        var editLink = $("<a href='#' class='editPerson' id=" + naughtyID + ">Edit This Person!</a>");
+        	editLink.html(naughtyNamesInfo);
+        	naughtyNames.append(editLink).appendTo("#naughtyDisplay");
+        
+        	editLink.on('click', function() {
+            	var listKey = this.id
+            	editList(listKey)
+            //console.log("My ID is: " + listKey)
+       		});
         };
 		
 		$("#naughtyDisplay").listview('refresh')
@@ -200,6 +209,26 @@ $('#viewList').on('pageinit', function()
             }
             
     	});
+    	
+    	var editList = function(listKey){    
+        
+        		$.mobile.changePage('#addGift'); //why changePage? 
+        
+        		var listKey = this.id;
+        		var listInfo = localStorage.getItem(listKey);
+        		//var listLibrary = JSON.parse(listInfo);
+    
+        		$("#name").val(naughtyNamesInfo.name[1]);
+        		$("#giftIdeas").val(naughtyNamesInfo.giftIdeas[1]);
+        		$("#budget").val(naughtyNamesInfo.budget[1]);
+        		$("#bought").val(naughtyNamesInfo.bought[1]);
+        		$("#type").val(naughtyNamesInfo.type[1]);
+        		$("#keyStorage").val(listKey);
+        
+        		$(".edit").val("Edit My List!");
+        		$(".edit").button('refresh');
+
+		};
     	
     
 }); //end #viewList
