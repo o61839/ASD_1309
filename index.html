@@ -165,7 +165,6 @@
 			<!-- edit function to repopulate this form -->
 			<section data-role="content">
 				<h1>Changing information? Adding a gift? Naughty or Nice?</h1>
-				<p>This page is under construction ... come back soon!</p>
 			</section>
 			<!--- *** This is the same form. Same IDs are causing a headache. Need to figure out how to edit with or without this form??? -->
 			<form action="" method="post" id="addPersonList" data-theme="a">
@@ -175,22 +174,22 @@
                 
                 <section data-role="fieldcontain">
                     <label for="name">* Name:</label>
-                    <input type="text" name="name" id="name" autocomplete="off" class="required" placeholder="Please enter a name..." />
+                    <input type="text" name="nameEdit" id="nameEdit" autocomplete="off" class="required" placeholder="Please enter a name..." />
                 </section>
                 
                 <section data-role="fieldcontain">
                     <label for="giftIdeas">* Gift Ideas:</label>
-                    <input type="text" name="giftIdeas" id="giftIdeas" autocomplete="off" class="required" placeholder="gift ideas..." />
+                    <input type="text" name="giftIdeasEdit" id="giftIdeasEdit" autocomplete="off" class="required" placeholder="gift ideas..." />
                 </section>
                 
                  <section data-role="fieldcontain">
                     <label for="budget">* Budget:</label>
-                    <input type="text" name="budget" id="budget" autocomplete="off" class="required" placeholder="budget..." />
+                    <input type="text" name="budgetEdit" id="budgetEdit" autocomplete="off" class="required" placeholder="budget..." />
                 </section>
                 
 				<section data-role="fieldcontain" id="wonky">
 						<label for="bought">Have you purchased gifts?</label>
-						<select data-role="slider" id="bought">
+						<select data-role="slider" id="boughtEdit">
 							<option value="on">Bought</option>
 							<option value="off">WishList</option>
 						</select>
@@ -198,7 +197,7 @@
 				
 				<section data-role="fieldcontain" id="wonky">
 						<label for="type">Gonna find out who's...</label>
-						<select data-role="slider" id="type">
+						<select data-role="slider" id="typeEdit">
 							<option value="on" id="naughty">Naughty</option>
 							<option value="off">Nice</option>
 						</select>

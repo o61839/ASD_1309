@@ -77,16 +77,116 @@ $('#find').on('pageinit', function()
 
 $('#addGift').on('pageinit', function()
 {
-	//want this page to be the edit page, but it might not end up that way...
+	var clearList = $(".delete").click(function()
+	{
+        if(localStorage.length === 0)
+        {
+            alert("You have no lists saved.");
+            window.location.reload("#homepage");
+        } 
+        else 
+        {
+            var confirmClear = confirm("Are you sure you want to delete all saved list(s)?");
+            if (confirmClear) 
+            {
+                localStorage.clear();
+                alert("You have successfully cleared all saved list(s)!");
+                $.mobile.changePage('#homepage');
+                window.location.reload();
+            } 
+            else 
+            {
+                alert("Your saved list(s) have not been deleted!");
+                window.location.reload();
+            };
+        };
+    }); // end clearList
+    
+     //need to do the cool code thinger with the key
+    var saveList = $('.save').on('click', function()	
+	{
+		//console.log("Hello World!"); 
+		//If there is no key, this means this is a brand new item and we need a new key
+		//$('#save').click(function(key) 	
+		
+		var alreadyKey = $("#keyStorage").val(); 
+		
+		if(!alreadyKey){
+			var keyValue = Math.floor(Math.random()*100001);
+		//	console.log("there is no key");
+		} else {
+			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
+			//the key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here, into the submitInfo function
+			keyValue = alreadyKey;
+		//	console.log("KEY");
+		}
+		//console.log(keyValue);
+		
+		//console.log("You gots to save!");
+		//var keyValue = Math.floor(Math.random()*100001);
+		
+		var boughtID = function()
+		{
+			if ($("#boughtEdit").val() == "on")
+			{
+				var boughtValue = "Bought"; 
+			}	
+			else
+			{
+				var boughtValue = "WishList"; 
+			}
+			return boughtValue; 
+		};
+		
+		var typeID = function()
+		{
+			if ($("#typeEdit").val() == "on")
+			{
+				var typeValue = "Naughty"; 
+			}	
+			else
+			{
+				var typeValue = "Nice"; 
+			}
+			return typeValue;
+		};
+		
+		var myData			= { 
+		//used the returns from the functions and set those as the variables for these arrays.
+			key			: [keyValue],
+			name	 	: ["Name: ", $("#nameEdit").val()],
+			giftIdeas 	: ["Gift Ideas: ", $("#giftIdeasEdit").val()],
+			budget	 	: ["Budget: ", $("#budgetEdit").val()],
+			bought	 	: ["Bought: ", boughtID()],
+			type		: ["On List: ", typeID()],
+		};
+		//Save data into Local Storage: use Stringify to convert our object to a string by using JSON.stringify
+		localStorage.setItem(keyValue, JSON.stringify(myData)); 
+		//console.log(localStorage); 
+		alert("Your list is saved");
+		window.location.reload("#homepage");
+		
+	}); //saveList
 	
 });	//end #addGift
 
 $('#addPerson').on('pageinit', function()
 {
-	var saveList = $('.save').on('click', function(key)	
+	var saveList = $('.save').on('click', function()	
 	{
-		console.log("You gots to save!");
-		var keyValue = Math.floor(Math.random()*100001);
+		var alreadyKey = $("#keyStorage").val(); 
+		
+		if(!alreadyKey){
+			var keyValue = Math.floor(Math.random()*100001);
+		//	console.log("there is no key");
+		} else {
+			//otherwise we will set the id (keyValue) to the existing key (key) so that it will save over the data. 
+			//the key is the same key that's been passed along from the editSubmit event handler
+			//to the validate function, and then passed here, into the submitInfo function
+			keyValue = alreadyKey;
+		//	console.log("KEY");
+		}
 		
 		var boughtID = function()
 		{
@@ -182,7 +282,7 @@ $('#viewList').on('pageinit', function()
         	$(".NaughtyList").append(naughtyNames)
         	naughtyNames.append(naughtyNamesInfo)
         	
-        var editLink = $("<a href='#' class='editPerson' id=" + naughtyID + ">Edit This Person!</a>");
+        var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
         	editLink.html(naughtyNamesInfo);
         	naughtyNames.append(editLink).appendTo("#naughtyDisplay");
         
@@ -212,23 +312,72 @@ $('#viewList').on('pageinit', function()
     	
     	var editList = function(listKey){    
         
-        		$.mobile.changePage('#addGift'); //why changePage? 
+        	$.mobile.changePage('#addGift'); //why changePage? 
         
-        		var listKey = this.id;
-        		var listInfo = localStorage.getItem(listKey);
-        		//var listLibrary = JSON.parse(listInfo);
+        	//var listKey = this.id;
+        	var listInfo = localStorage.getItem(listKey);
+        	var listLibrary = JSON.parse(listInfo);
     
-        		$("#name").val(naughtyNamesInfo.name[1]);
-        		$("#giftIdeas").val(naughtyNamesInfo.giftIdeas[1]);
-        		$("#budget").val(naughtyNamesInfo.budget[1]);
-        		$("#bought").val(naughtyNamesInfo.bought[1]);
-        		$("#type").val(naughtyNamesInfo.type[1]);
-        		$("#keyStorage").val(listKey);
+    		var purchased = listLibrary.bought[1]; 
+    		var list = listLibrary.type[1];
+    		
+    		if (purchased == "Bought") 
+    		{
+    			$("#boughtEdit").val("on");
+    			$("#boughtEdit").slider('refresh');
+    			
+    		}
+    		else
+    		{
+    			$("#boughtEdit").val("off");
+    			$("#boughtEdit").slider('refresh');
+    		}
+    		
+    		if (list == "Naughty") 
+    		{
+    			$("#typeEdit").val("on");
+    			$("#typeEdit").slider('refresh');
+    		}
+    		else
+    		{
+    			$("#typeEdit").val("off");
+    			$("#typeEdit").slider('refresh');
+    		}
+    		
+        	$("#nameEdit").val(listLibrary.name[1]);
+        	$("#giftIdeasEdit").val(listLibrary.giftIdeas[1]);
+        	$("#budgetEdit").val(listLibrary.budget[1]);
+        	$("#keyStorage").val(listKey);
         
-        		$(".edit").val("Edit My List!");
-        		$(".edit").button('refresh');
+        		//$(".edit").val("Edit My List!");
+        		//$(".edit").button('refresh');
 
 		};
+		
+	var clearList = $(".delete").click(function()
+	{
+        if(localStorage.length === 0)
+        {
+            alert("You have no lists saved.");
+            window.location.reload("#homepage");
+        } 
+        else 
+        {
+            var confirmClear = confirm("Are you sure you want to delete all saved list(s)?");
+            if (confirmClear) 
+            {
+                localStorage.clear();
+                alert("You have successfully cleared all saved list(s)!");
+                $.mobile.changePage('#homepage');
+                window.location.reload();
+            } 
+            else 
+            {
+                alert("Your saved list(s) have not been deleted!");
+                window.location.reload();
+            };
+        };
+    }); // end clearList
     	
     
 }); //end #viewList
