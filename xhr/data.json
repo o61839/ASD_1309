@@ -8,31 +8,31 @@
 			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Name", "Megan"],
+			"name"		:	["Name", "Holland"],
 			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
 			"budget" 	: 	["Budget", "$25.00"],
 			"bought" 	: 	["Bought", "Yes"],
 			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Name", "Megan"],
+			"name"		:	["Name", "Harper"],
 			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
 			"budget" 	: 	["Budget", "$25.00"],
 			"bought" 	: 	["Bought", "Yes"],
 			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Name", "Megan"],
-			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"name"		:	["Name", "Laken"],
+			"giftIdeas" : 	["Gift", "tanka truck"],
 			"budget" 	: 	["Budget", "$25.00"],
-			"bought" 	: 	["Bought", "Yes"],
+			"bought" 	: 	["Bought", "No"],
 			"type" 		: 	["Type", "Nice"]
 		},
 		{
-			"name"		:	["Name", "Megan"],
-			"giftIdeas" : 	["Gift", "Gift Cert to Color Me Mine"],
+			"name"		:	["Name", "Finley"],
+			"giftIdeas" : 	["Gift", "baby doll"],
 			"budget" 	: 	["Budget", "$25.00"],
-			"bought" 	: 	["Bought", "Yes"],
+			"bought" 	: 	["Bought", "No"],
 			"type" 		: 	["Type", "Nice"]
 		}
 	]
