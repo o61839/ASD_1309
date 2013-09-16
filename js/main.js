@@ -173,6 +173,7 @@ $('#addGift').on('pageinit', function()
 
 $('#addPerson').on('pageinit', function()
 {
+	
 	var saveList = $('.save').on('click', function()	
 	{
 		var alreadyKey = $("#keyStorage").val(); 
@@ -260,6 +261,61 @@ $('#addPerson').on('pageinit', function()
 
 $('#viewList').on('pageinit', function()
 {		
+	$(".loadJSON").on("click", function(){
+		//console.log("Hola. Me encanta cantar y bailar");
+        
+		 $.ajax({
+		    url: "xhr/data.json",
+		    type: "GET",
+		    dataType: "json",
+		    success: function(niceList) {
+				$.each(niceList.person, function(index, singleList)
+				{
+			   	 	var key = Math.floor(Math.random()*100001);
+			    	var storeList = JSON.stringify(singleList);
+			    	localStorage.setItem(key, storeList)
+			    	console.log("Saved item " + singleList + " to Local Storage with a ID of: " + key)
+				})
+				alert ("Your nice list (json) has been saved!");
+				//console.log("wonky wonky");
+				window.location.reload();
+		    },
+		    error: function(error, errorparse){
+				console.log(error, errorparse)
+		    }
+		});
+        
+	});
+	
+	$(".loadXML").on("click", function(){
+    	//alert("Hola. Yo tengo cinco perros.");
+      $.ajax({
+            url: "xhr/data.xml",
+            type: "GET",
+            dataType: "xml",
+            success: function(naughtyListXML) {
+                $('naughtyList', naughtyListXML).each(function(){
+                    var key = Math.floor(Math.random()*1000000000);
+                    var storeList = {
+                        name  			:[$("name", this).text()],
+                        giftIdeas     	:[$("giftIdeas", this).text()],
+                        budget          :[$("budget", this).text()],
+                        bought      	:[$("bought", this).text()],
+                        type          	:[$("type", this).text()],
+                    }
+                    localStorage.setItem(key, JSON.stringify(storeList))
+                    //console.log(storeList)
+                });
+                alert ("Your naughty list (xml) has been saved!");
+                window.location.reload();
+            },
+            error: function(error, errorparse){
+                console.log(error, errorparse)
+            }
+        });
+        
+    });
+	
 	//var naughtyXML = $('#naughtyList').on('click', function(key){};
 	//eventually I need to change this to only display the NAUGHTY LIST and have it in the naughty list section
 	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>")
@@ -268,7 +324,7 @@ $('#viewList').on('pageinit', function()
 			var naughtyID 		= localStorage.key(i);
         	var naughtyValue 	= localStorage.getItem(naughtyID);
         	var naughtyInfo	 	= JSON.parse(naughtyValue);
-        	
+        	console.log(naughtyInfo)
         	var naughtyNames = $("<li></li>");
         	var naughtyNamesInfo = 
         	$(
@@ -279,10 +335,11 @@ $('#viewList').on('pageinit', function()
         		"<p>" + naughtyInfo.type[1] + "</p>" +
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
         	);
-        	$(".NaughtyList").append(naughtyNames)
         	naughtyNames.append(naughtyNamesInfo)
+        	$(".NaughtyList").append(naughtyNames)
         	
-        var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
+        	
+        	var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
         	editLink.html(naughtyNamesInfo);
         	naughtyNames.append(editLink).appendTo("#naughtyDisplay");
         
@@ -378,6 +435,6 @@ $('#viewList').on('pageinit', function()
             };
         };
     }); // end clearList
-    	
+	
     
 }); //end #viewList
