@@ -289,31 +289,31 @@ $('#viewList').on('pageinit', function()
 	
 	$(".loadXML").on("click", function(){
     	//alert("Hola. Yo tengo cinco perros.");
-      $.ajax({
-            url: "xhr/data.xml",
-            type: "GET",
-            dataType: "xml",
-            success: function(naughtyListXML) {
-                $('naughtyList', naughtyListXML).each(function(){
-                    var key = Math.floor(Math.random()*1000000000);
-                    var storeList = {
-                        name  			:[$("name", this).text()],
-                        giftIdeas     	:[$("giftIdeas", this).text()],
-                        budget          :[$("budget", this).text()],
-                        bought      	:[$("bought", this).text()],
-                        type          	:[$("type", this).text()],
-                    }
-                    localStorage.setItem(key, JSON.stringify(storeList))
-                    //console.log(storeList)
-                });
-                alert ("Your naughty list (xml) has been saved!");
-                window.location.reload();
-            },
-            error: function(error, errorparse){
-                console.log(error, errorparse)
-            }
-        });
-        
+      	$.ajax({
+			url: "xhr/data.xml",
+			type: "GET",
+			dataType: "xml",
+			success: function(naughtyListXML) {
+				$(naughtyListXML).find('person').each(function(){
+					var key = Math.floor(Math.random()*1000000000);
+					var storeList = {};
+					   storeList.name = ["name: ", $(this).find('name').text()];
+					   storeList.giftIdeas = ["name: ", $(this).find('giftIdeas').text()];
+					   storeList.budget = ["name: ", $(this).find('budget').text()];
+					   storeList.bought = ["name: ", $(this).find('bought').text()];
+					   storeList.type = ["name: ", $(this).find('type').text()];
+					   localStorage.setItem(key, JSON.stringify(storeList));
+					   console.log(storeList);
+				 });
+
+				alert ("Your naughty list (xml) has been saved!");
+				window.location.reload();
+
+			},
+			error: function(error, errorparse){
+			console.log(error, errorparse)
+			}
+		});  
     });
 	
 	//var naughtyXML = $('#naughtyList').on('click', function(key){};
@@ -335,9 +335,9 @@ $('#viewList').on('pageinit', function()
         		"<p>" + naughtyInfo.type[1] + "</p>" +
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
         	);
-        	naughtyNames.append(naughtyNamesInfo)
-        	$(".NaughtyList").append(naughtyNames)
         	
+        	$(".NaughtyList").append(naughtyNames)
+        	naughtyNames.append(naughtyNamesInfo)
         	
         	var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
         	editLink.html(naughtyNamesInfo);
