@@ -297,11 +297,11 @@ $('#viewList').on('pageinit', function()
 				$(naughtyListXML).find('person').each(function(){
 					var key = Math.floor(Math.random()*1000000000);
 					var storeList = {};
-					   storeList.name = $(this).find('name').text();
-					   storeList.giftIdeas = $(this).find('giftIdeas').text();
-					   storeList.budget = $(this).find('budget').text();
-					   storeList.bought = $(this).find('bought').text();
-					   storeList.type = $(this).find('type').text();
+					   storeList.name = ["name: ", $(this).find('name').text()];
+					   storeList.giftIdeas = ["name: ", $(this).find('giftIdeas').text()];
+					   storeList.budget = ["name: ", $(this).find('budget').text()];
+					   storeList.bought = ["name: ", $(this).find('bought').text()];
+					   storeList.type = ["name: ", $(this).find('type').text()];
 					   localStorage.setItem(key, JSON.stringify(storeList));
 					   console.log(storeList);
 				 });
