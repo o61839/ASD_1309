@@ -1,0 +1,23 @@
+/*
+	Jenney Grover
+	ASD 1309
+	Christmas List
+	September 2013
+*/
+
+
+#wonky {
+	font-size: 24px;
+}
+
+#daysTo {
+	display: hide; 
+}
+
+#daysTill {
+	display: hide; 
+}
+
+span {
+	font-size: small; 
+}
