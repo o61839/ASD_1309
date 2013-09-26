@@ -318,14 +318,14 @@ $('#viewList').on('pageinit', function()
 	
 	//var naughtyXML = $('#naughtyList').on('click', function(key){};
 	//eventually I need to change this to only display the NAUGHTY LIST and have it in the naughty list section
-	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>")
+	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>");
 		for (var i = 0, f = localStorage.length; i < f; i++) 
 		{
 			var naughtyID 		= localStorage.key(i);
         	var naughtyValue 	= localStorage.getItem(naughtyID);
         	var naughtyInfo	 	= JSON.parse(naughtyValue);
-        	console.log(naughtyInfo)
-        	var naughtyNames = $("<li></li>");
+        	console.log(naughtyInfo);
+        	var naughtyNames = $("<li class-"' + naughtyID + '"></li>");
         	var naughtyNamesInfo = 
         	$(
         		"<h4>" + naughtyInfo.name[1] + "</h4>" +
@@ -336,8 +336,10 @@ $('#viewList').on('pageinit', function()
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
         	);
         	
-        	$(".NaughtyList").append(naughtyNames)
-        	naughtyNames.append(naughtyNamesInfo)
+        	$(".NaughtyList").append(naughtyNames);
+        	
+        	//naughtyNames.append(naughtyNamesInfo);
+        	$("li."+naughtyID).append(naughtyNamesInfo);
         	
         	var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
         	editLink.html(naughtyNamesInfo);
@@ -346,11 +348,11 @@ $('#viewList').on('pageinit', function()
         	editLink.on('click', function() {
             	var listKey = this.id
             	editList(listKey)
-            //console.log("My ID is: " + listKey)
+            //console.log("My ID is: " + listKey);
        		});
         };
 		
-		$("#naughtyDisplay").listview('refresh')
+		$("#naughtyDisplay").listview('refresh');
 		
 		$(".deletePerson").on("click", function ()
 		{
