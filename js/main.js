@@ -2,8 +2,9 @@
 //ASD 1309
 //Christmas List
 //September 2013
+//using Couch and Cloudant
 
-$("#homepage").on('pageinit', function() 
+$(document).on('pageinit', "#homepage", function() 
 {
 	//console.log("Whoa stop dude!");
 	$("#daysTo").click(function() 
@@ -65,17 +66,17 @@ $("#homepage").on('pageinit', function()
 
 });//end #homepage 
 
-$('#info').on('pageinit', function()
+$(document).on('pageinit', '#info', function()
 {
 	//don't think there are any functions needed for this page
 });//end #info
 
-$('#find').on('pageinit', function()
+$(document).on('pageinit', '#find', function()
 {
 	//this is still under construction
 });	//end #find 
 
-$('#addGift').on('pageinit', function()
+$(document).on('pageinit', '#addGift', function()
 {
 	var clearList = $(".delete").click(function()
 	{
@@ -171,7 +172,7 @@ $('#addGift').on('pageinit', function()
 	
 });	//end #addGift
 
-$('#addPerson').on('pageinit', function()
+$(document).on('pageinit','#addPerson', function()
 {
 	
 	var saveList = $('.save').on('click', function()	
@@ -259,9 +260,9 @@ $('#addPerson').on('pageinit', function()
 	
 });	//end #addPerson
 
-$('#viewList').on('pageinit', function()
+$(document).on('pageinit','#viewList', function()
 {		
-	$(".loadJSON").on("click", function(){
+	/*$(".loadJSON").on("click", function(){
 		//console.log("Hola. Me encanta cantar y bailar");
         
 		 $.ajax({
@@ -314,18 +315,29 @@ $('#viewList').on('pageinit', function()
 			console.log(error, errorparse)
 			}
 		});  
-    });
+    }); */
 	
 	//var naughtyXML = $('#naughtyList').on('click', function(key){};
 	//eventually I need to change this to only display the NAUGHTY LIST and have it in the naughty list section
+<<<<<<< HEAD
+	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>");
+=======
+	
+	
 	$("#naughtyDisplay").append("<ul class='NaughtyList'></ul>")
+>>>>>>> f42373ed8b38381d7d059598cde90bcff274d496
 		for (var i = 0, f = localStorage.length; i < f; i++) 
 		{
-			var naughtyID 		= localStorage.key(i);
+		var naughtyID 		= localStorage.key(i);
         	var naughtyValue 	= localStorage.getItem(naughtyID);
         	var naughtyInfo	 	= JSON.parse(naughtyValue);
+<<<<<<< HEAD
+        	console.log(naughtyInfo);
+        	var naughtyNames = $("<li class-"' + naughtyID + '"></li>");
+=======
         	console.log(naughtyInfo)
-        	var naughtyNames = $("<li></li>");
+        	var naughtyNames = $("<li class="' + naughtyID + '"></li>");
+>>>>>>> f42373ed8b38381d7d059598cde90bcff274d496
         	var naughtyNamesInfo = 
         	$(
         		"<h4>" + naughtyInfo.name[1] + "</h4>" +
@@ -336,8 +348,15 @@ $('#viewList').on('pageinit', function()
         		"<button class='deletePerson' data-key=" + naughtyID + ">Delete This Person!</button>"
         	);
         	
+<<<<<<< HEAD
+        	$(".NaughtyList").append(naughtyNames);
+        	
+        	//naughtyNames.append(naughtyNamesInfo);
+        	$("li."+naughtyID).append(naughtyNamesInfo);
+=======
         	$(".NaughtyList").append(naughtyNames)
-        	naughtyNames.append(naughtyNamesInfo)
+        	$("li.naughtyID").append(naughtyNamesInfo)
+>>>>>>> f42373ed8b38381d7d059598cde90bcff274d496
         	
         	var editLink = $("<a href='#' class='editList' id=" + naughtyID + ">Edit This Person!</a>");
         	editLink.html(naughtyNamesInfo);
@@ -346,11 +365,11 @@ $('#viewList').on('pageinit', function()
         	editLink.on('click', function() {
             	var listKey = this.id
             	editList(listKey)
-            //console.log("My ID is: " + listKey)
+            //console.log("My ID is: " + listKey);
        		});
         };
 		
-		$("#naughtyDisplay").listview('refresh')
+		$("#naughtyDisplay").listview('refresh');
 		
 		$(".deletePerson").on("click", function ()
 		{
